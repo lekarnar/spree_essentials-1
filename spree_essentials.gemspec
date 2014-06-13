@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.require_paths = ["lib"]
 
-  s.add_dependency 'spree_core', '~> 2.1.0'
+  s.add_dependency 'spree_core', '~> 2.2.0'
 
   s.add_runtime_dependency('rdiscount',   '~> 1.6.8')
 
