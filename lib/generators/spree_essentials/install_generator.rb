@@ -7,7 +7,7 @@ module SpreeEssentials
       desc "Installs required migrations for spree_essentials"
       
       def add_stylesheets
-        inject_into_file "vendor/assets/stylesheets/spree/backend/all.css", "*/", "*= require admin/spree_essentials\n*/"  
+        inject_into_file "vendor/assets/stylesheets/spree/backend/all.css", "*/", "*= require admin/spree_essentials\n*/", :before => /\*\//, :verbose => true
       end
       
       def add_javascripts
