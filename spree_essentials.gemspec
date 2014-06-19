@@ -21,12 +21,12 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency('rdiscount',   '~> 1.6.8')
 
-  s.add_development_dependency('shoulda',      '~> 3.0.0')
+  s.add_development_dependency('shoulda',      '~> 3.5.0')
   s.add_development_dependency('dummier',      '~> 0.3.0')
-  s.add_development_dependency('factory_girl', '~> 2.6.0')
-  s.add_development_dependency('capybara',     '~> 1.1.2')
-  s.add_development_dependency('sqlite3',      '~> 1.3.4')
-  s.add_development_dependency('simplecov',    '~> 0.6.1')
+  s.add_development_dependency('factory_girl', '~> 4.2')
+  s.add_development_dependency('capybara',     '~> 2.1')
+  s.add_development_dependency('sqlite3')
+  s.add_development_dependency('simplecov')
   # s.add_development_dependency('turn',         '~> 0.9.3')
 
 end
