@@ -1,20 +1,26 @@
 module SpreeEssentials
   module Generators
     class InstallGenerator < Rails::Generators::Base
+
+      class_option :auto_run_migrations, :type => :boolean, :default => false
       
       desc "Installs required migrations for spree_essentials"
       
-      class_option :add_stylesheets, :type => :boolean, :default => true, :banner => 'Append spree_essentials to admin/all.css'
-      class_option :add_javascripts, :type => :boolean, :default => true, :banner => 'Append spree_essentials to admin/all.js'
-      
-      def append_stylesheets
-        return unless options[:add_stylesheets]
-        gsub_file "app/assets/stylesheets/admin/all.css", "*/", "*= require admin/spree_essentials\n*/"  
+      def add_stylesheets
+        inject_into_file "vendor/assets/stylesheets/spree/backend/all.css", "*/", "*= require admin/spree_essentials\n*/"  
       end
       
-      def append_javascripts
-        return unless options[:add_javascripts]
-        append_file "app/assets/javascripts/admin/all.js", "//= require admin/spree_essentials"
+      def add_javascripts
+        append_file "vendor/assets/javascripts/spree/backend/all.js", "//= require admin/spree_essentials"
+      end
+
+      def run_migrations
+        run_migrations = options[:auto_run_migrations] || ['', 'y', 'Y'].include?(ask 'Would you like to run the migrations now? [Y/n]')
+        if run_migrations
+          run 'bundle exec rake db:migrate'
+        else
+          puts 'Skipping rake db:migrate, don\'t forget to run it!'
+        end
       end
 
     end
