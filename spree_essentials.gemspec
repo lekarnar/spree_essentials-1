@@ -19,12 +19,12 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '~> 2.2.0'
 
-  s.add_runtime_dependency('rdiscount',   '~> 1.6.8')
+  s.add_runtime_dependency('rdiscount',   '~> 2.1.0')
 
-  s.add_development_dependency('shoulda',      '~> 3.5.0')
-  s.add_development_dependency('dummier',      '~> 0.3.0')
-  s.add_development_dependency('factory_girl', '~> 4.2')
-  s.add_development_dependency('capybara',     '~> 2.1')
+  s.add_development_dependency('shoulda')
+  s.add_development_dependency('dummier')
+  s.add_development_dependency('factory_girl')
+  s.add_development_dependency('capybara')
   s.add_development_dependency('sqlite3')
   s.add_development_dependency('simplecov')
   # s.add_development_dependency('turn',         '~> 0.9.3')
