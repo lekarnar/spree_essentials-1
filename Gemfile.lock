@@ -3,7 +3,7 @@ PATH
   specs:
     spree_essentials (0.5.0)
       rdiscount (~> 2.1.0)
-      spree_core (~> 2.2.0)
+      spree_core (~> 2.3.0)
 
 PATH
   remote: test/spree_essential_example
