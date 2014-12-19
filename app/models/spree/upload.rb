@@ -7,8 +7,11 @@ class Spree::Upload < ::Spree::Asset
   has_attached_file :attachment,
     :styles        => Proc.new{ |clip| clip.instance.attachment_sizes },
     :default_style => :medium,
-    :url           => "/spree/uploads/:id/:style/:basename.:extension",
-    :path          => ":rails_root/public/spree/uploads/:id/:style/:basename.:extension"
+    :path          => "/spree/uploads/:id/:style/:basename.:extension"
+    :url           => ":path",
+  
+  validates_attachment :attachment,
+    content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
   
   def image_content?
     attachment_content_type.match(/\/(jpeg|png|gif|tiff|x-photoshop)/)
