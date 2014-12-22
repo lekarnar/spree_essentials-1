@@ -1,6 +1,6 @@
 class Spree::Upload < ::Spree::Asset
   
-  default_scope where(:type => "Upload") if table_exists?
+  default_scope { where(:type => "Upload") if table_exists? }
   
   validate :no_attachement_errors
   
