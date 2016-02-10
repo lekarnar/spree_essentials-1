@@ -1,7 +1,7 @@
 <h3><%= t('.new_upload') %></h3>
 
 <% if @upload.try(:errors).present? %>
-  <%= render 'shared/error_messages', :target => @upload %>
+  <%= render 'spree/shared/error_messages', :target => @upload %>
 <% end %>
 
 <%= form_for([:admin, @upload], :html => { :multipart => true }) do |form| %>
