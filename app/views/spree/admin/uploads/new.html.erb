@@ -9,8 +9,8 @@
     <%= render "form", :form => form %>
   </table>
   <p class="form-buttons">
-    <%= button t("create") %>
-    or <%= link_to t("cancel"), "#", :id => "cancel_link" %>
+    <%= button Spree.t("create") %>
+    or <%= link_to Spree.t("cancel"), admin_uploads_path, :id => "cancel_link", class: "btn btn-danger" %>
   </p>
 <% end %>
 
