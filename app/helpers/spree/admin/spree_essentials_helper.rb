@@ -6,12 +6,10 @@ module Spree::Admin::SpreeEssentialsHelper
 
   def contents_tab
     content_tag :ul, :class => "nav nav-sidebar" do
-      content_tag :li, :class => 'tab-with-icon' do
-        link_to extension_routes.first do
-          concat content_tag(:span, "", :class => 'glyphicon glyphicon-file')
-          concat content_tag(:span, I18n.t('spree.admin.shared.contents_tab.content'), :class => 'text')
+      content_tag :li, class: 'sidebar-menu-item' do
+          main_menu_item(I18n.t('spree.admin.shared.contents_tab.content'), url: "#sidebar-posts", icon: "th-large") +
+          render(partial: "spree/admin/shared/contents_sub_menu")
         end
-      end
     end
   end
 

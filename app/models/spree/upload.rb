@@ -1,16 +1,20 @@
 class Spree::Upload < ::Spree::Asset
 
   # attr_accessible :attachment, :alt
-
-  default_scope {where(type: "Upload") if table_exists?}
-
-  validate :no_attachement_errors
+  # we had to leave this here, because it was already here, and maybe
+  # something is depending on this default scope
+  # updated type: Upload to Spree::Upload
+  default_scope {where(type: "Spree::Upload") if table_exists?}
 
   has_attached_file :attachment,
     :styles        => Proc.new{ |clip| clip.instance.attachment_sizes },
     :default_style => :medium,
     :url           => "/spree/uploads/:id/:style/:basename.:extension",
     :path          => ":rails_root/public/spree/uploads/:id/:style/:basename.:extension"
+
+  validates_attachment :attachment, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+
+  self.whitelisted_ransackable_attributes =  %w[alt]
 
   def image_content?
     attachment_content_type.match(/\/(jpeg|png|gif|tiff|x-photoshop)/)
