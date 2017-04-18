@@ -1,12 +1,12 @@
 <% content_for :page_title do %>
-  <%= t('.listing_uploads') %>
+  <%= Spree.t('listing_uploads') %>
 <% end %>
 
 <div class="box">
-  <h4 style="text-align: center;"><%= t(:search) %></h4>
+  <h4 style="text-align: center;"><%= Spree.t(:search) %></h4>
   <%= search_form_for [:admin, @search] do |f| %>
     <div class="description">
-      <%= f.label :alt_cont, t('description') %><br />
+      <%= f.label :alt_cont, Spree.t('description') %><br />
       <%= f.text_field :alt_cont, :size => 25, class: 'form-control' %>
     </div>
     <div class="search"><%= button Spree.t("search") %></div>
@@ -15,11 +15,11 @@
 
 <table class="table table-bordered index">
 	<tr>
-	  <th><%= t("thumbnail") %></th>
-	  <th><%= sort_link @search, :attachment_file_name, t("upload.file_name") %></th>
-	  <th><%= sort_link @search, :description, t("description") %></th>
-	  <th><%= sort_link @search, :attachment_file_size, t("upload.size") %></th>
-	  <th><%= t("action") %></th>
+	  <th><%= Spree.t("thumbnail") %></th>
+	  <th><%= sort_link @search, :attachment_file_name, Spree.t("upload.file_name") %></th>
+	  <th><%= sort_link @search, :description, Spree.t("description") %></th>
+	  <th><%= sort_link @search, :attachment_file_size, Spree.t("upload.size") %></th>
+	  <th><%= Spree.t("action") %></th>
 	</tr>
   <% @uploads.each do |upload| %>
     <tr id="<%= dom_id(upload) %>">

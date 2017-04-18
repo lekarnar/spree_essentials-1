@@ -1,5 +1,6 @@
 <ul id="sidebar-posts" class="collapse nav nav-pills nav-stacked" data-hook="admin_product_sub_tabs">
   <% SpreeEssentials.essentials.each_pair do |name, cls| %>
+    <!-- <%# binding.pry %> -->
     <%= tab *cls.sub_tab if defined?(cls.sub_tab) %>
   <% end %>
   <%= tab :uploads, :label => t('spree.admin.subnav.uploads') %>

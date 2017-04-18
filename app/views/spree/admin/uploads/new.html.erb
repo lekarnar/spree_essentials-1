@@ -1,4 +1,4 @@
-<h3><%= t('.new_upload') %></h3>
+<h3><%= Spree.t('.new_upload') %></h3>
 
 <% if @upload.try(:errors).present? %>
   <%= render 'spree/shared/error_messages', :target => @upload %>
